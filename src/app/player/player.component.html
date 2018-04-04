@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="row">
+    <h2>Recent matches: </h2>
+  </div>
+
+  <div class="row">
+
+    <table class="table">
+
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Game mode</th>
+          <th>Time started</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let match of matches index as i;">
+          <td><a [routerLink]="['/match-detail', i]">{{i}}</a></td>
+          <td>{{match.data.attributes.gameMode}}</td>
+          <td>{{match.data.attributes.createdAt}}</td>
+          <td>{{match.data.attributes.duration}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

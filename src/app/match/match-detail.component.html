@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div>
+    <h2>Player stats for this match: {{player.attributes.stats.name}}</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 dropdown">
+      <input type="text" class="form-control" auto-complete [(ngModel)]="inputSearchPlayer" [source]="participantsNames"/>
+    </div>
+    <button class="btn btn-secondary" (click)="searchPlayer(inputSearchPlayer)">Search player</button>
+    * for instance your killer!
+  </div>
+
+  <div class="row"><br/></div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <a data-toggle="collapse" href="#collapsePlayer">Player: {{player.attributes.stats.name}}</a>
+    </div>
+
+    <div id="collapsePlayer" class="collapse">
+      <app-player-info [player]="player"></app-player-info>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <a data-toggle="collapse" href="#collapseWinner">Winner: {{winner.attributes.stats.name}}</a>
+    </div>
+
+    <div id="collapseWinner" class="collapse">
+      <app-player-info [player]="winner"></app-player-info>
+    </div>
+  </div>
+
+
+  <div *ngIf="searchedPlayer">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a data-toggle="collapse" href="#collapseKiller">Searched Player: {{searchedPlayer.attributes.stats.name}}</a>
+      </div>
+
+      <div id="collapseKiller" class="collapse">
+        <app-player-info class="playerInfo" [player]="searchedPlayer"></app-player-info>
+      </div>
+    </div>
+  </div>
+
+</div>
+
